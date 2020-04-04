@@ -3,5 +3,8 @@
   <url>
     <loc>http://yoursite.com/2020/04/03/hello-world/</loc>
     <lastmod>2020-04-04</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2020/04/04/test/</loc>
+    <lastmod>2020-04-04</lastmod>
   </url>
 </urlset>
