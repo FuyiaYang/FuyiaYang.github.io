@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 生物篇 | FuyiaYang</title>
+  <title>信号量临界区保护-OS-5 | FuyiaYang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Fuyia&#39;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="FuyiaYang">
-<meta property="og:url" content="http://yoursite.com/tags/%E7%94%9F%E7%89%A9%E7%AF%87/index.html">
+  <meta name="description" content="&amp;ensp; 用临界区保护信号量，用信号量实现进程的同步！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信号量临界区保护-OS-5">
+<meta property="og:url" content="http://yoursite.com/2021/03/20/2021-03-20-OS5-signalProtect-md/index.html">
 <meta property="og:site_name" content="FuyiaYang">
-<meta property="og:description" content="Fuyia&#39;s Blog">
+<meta property="og:description" content="&amp;ensp; 用临界区保护信号量，用信号量实现进程的同步！">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-20T06:21:18.000Z">
+<meta property="article:modified_time" content="2021-03-20T06:59:29.783Z">
 <meta property="article:author" content="杨润钊的博客">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="FuyiaYang" type="application/atom+xml">
@@ -189,92 +192,277 @@
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                
-  
-  
+                <article id="post-2021-03-20-OS5-signalProtect-md"
+  class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
     
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/10/IELTS11-T1-P3/" class="archive-article-date">
-  	<time datetime="2020-04-10T14:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
+        <h1 class="article-title" itemprop="name">
+          信号量临界区保护-OS-5
+        </h1>
+        
+          
+
+          
+            <a href="/2021/03/20/2021-03-20-OS5-signalProtect-md/" class="archive-article-date">
+  	<time datetime="2021-03-20T06:21:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-20</time>
 </a>
-        </div>
-    	 
-    
-      <h1 itemprop="name">
-        <a class="archive-article-title" href="/2020/04/10/IELTS11-T1-P3/">
-          词汇-剑11-Test1-Passage3
-        </a>
-      </h1>
+
+              <!-- 开始添加字数统计-->
+              <!-- 
+                <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text"> 字数统计: </span>
+      <span class="post-count">
+        1k字
+      </span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text"> 阅读时长: </span>
+      <span class="post-count">
+        3分
+      </span>
+    </span>
+  </span>
+</div>
+                   -->
+
+              
+                <span class="archive-article-date">
+                  本文阅读次数 <span id="busuanzi_value_page_pv"></span>
+                </span>
+                
+
+
+
+                  
+      </header>
+
       
+        <div class="article-entry" itemprop="articleBody">
           
-        <div class="article-info info-on-right">
+                    <p>&ensp; 用<strong>临界区</strong>保护信号量，用<strong>信号量</strong>实现进程的同步！</p>
+<a id="more"></a>
+
+<h3 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h3><ol>
+<li><strong>临界区</strong>：一次只允许一个进程进入该进程的那一段代码；</li>
+<li>一个非常重要的工作：找出进程中的临界区代码；</li>
+<li>读写信号量的代码一定是临界区。</li>
+</ol>
+<h3 id="临界区代码的保护原则"><a href="#临界区代码的保护原则" class="headerlink" title="临界区代码的保护原则"></a>临界区代码的保护原则</h3><ul>
+<li>基本原则：<ol>
+<li>1.<strong>互斥进入</strong>：如果一个进程再临界区中执行，则其他进程不允许进入；<ul>
+<li>这些进程间的约束关系称为互斥（mutual exclusion）；</li>
+<li>这保证了是临界区；</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>好的临界区保护原则：<ol start="2">
+<li>2.<strong>有空让进</strong>：若干进程要求进入空闲临界区时，应尽快使一进程进入临界区；</li>
+<li>3.<strong>有限等待</strong>：从进程发出进入请求到允许进入，不能无限等待；</li>
+</ol>
+</li>
+</ul>
+<h3 id="进入临界区的尝试"><a href="#进入临界区的尝试" class="headerlink" title="进入临界区的尝试"></a>进入临界区的尝试</h3><p><strong>1. 轮转法</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 进程 P0</span></span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">turn</span> !=<span class="number">0</span>);</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">临界区</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line"><span class="built_in">turn</span> =<span class="number">1</span>;</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">剩余区</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 进程 P1</span></span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">turn</span> !=<span class="number">1</span>);</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">临界区</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line"><span class="built_in">turn</span> =<span class="number">0</span>;</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">剩余区</span></span><br><span class="line"><span class="comment">**************/</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>满足互斥进入要求</li>
+<li>问题：P0完成后不能接着再次进入，尽管进程P1不在临界区…（不满足有空让进）<ul>
+<li>解决方法：标记法</li>
+</ul>
+</li>
+</ul>
+<p>&ensp;<br><strong>2. 标记法</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 进程 P0</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="literal">true</span>;</span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">1</span>]);</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">临界区</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="literal">false</span>;</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">剩余区</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 进程 P1</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="literal">true</span>;</span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">0</span>]);</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">临界区</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="literal">false</span>;</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">剩余区</span></span><br><span class="line"><span class="comment">**************/</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>进去之前打个标记：进程P0将flag[0]置为true，表明P0将进入临界区。</li>
+<li>满足互斥进入要求</li>
+<li>问题：当flag[0]=true, flag[1]=true同时标记时，P0，P1会无限次地等待<ul>
+<li>解决方法：让一个进程更加“勤劳”。</li>
+</ul>
+</li>
+</ul>
+<p>&ensp;<br><strong>3. Peterson算法</strong></p>
+<ul>
+<li>非对称标记法：标记+让一个进程更加“勤劳”；</li>
+<li>结合了标记和轮转两种思想；<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 进程 P0</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="literal">true</span>;</span><br><span class="line"><span class="built_in">turn</span>=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">1</span>]&amp;&amp;<span class="built_in">turn</span> ==<span class="number">1</span>);</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">临界区</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="literal">false</span>;</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">剩余区</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 进程 P1</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="literal">true</span>;</span><br><span class="line"><span class="built_in">turn</span>=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">0</span>]&amp;&amp;<span class="built_in">turn</span> ==<span class="number">0</span>);</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">临界区</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="literal">false</span>;</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">剩余区</span></span><br><span class="line"><span class="comment">**************/</span></span><br></pre></td></tr></table></figure></li>
+<li>满足互斥进入：如果两个进程都进入，则flag[0]=flag[1]=true,turn==0==1,矛盾！</li>
+<li>满足有空让进：如果进程P1不在临界区，则flag[1]=false,或者turn=0, P0都能进入！</li>
+<li>满足有限等待：P0要求进入，flag[0]=true, 后面的P1不可能一直进入，因为P1执行一次就会让turn=0！</li>
+<li>问题：多个进程怎么办？</li>
+</ul>
+<p>&ensp;<br><strong>4. 面包店算法</strong></p>
+<ul>
+<li>仍然是<strong>标记</strong>和<strong>轮转</strong>的结合；<ul>
+<li>如何轮转：每个进程都获得一个序号，序号最小的进入；</li>
+<li>如何标记：进程离开时序号为0，不为0的序号即标记；</li>
+</ul>
+</li>
+<li>（面包店：每个进入商店的客户都获得一个号码，号码最小的先得到服务；号码相同时，名字靠前的先服务）<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 进程 Pi</span></span><br><span class="line">choosing[i]=<span class="literal">true</span>;num[i]=<span class="built_in">max</span>(num[<span class="number">0</span>],...,num[n<span class="number">-1</span>])+<span class="number">1</span>;</span><br><span class="line">choosing[i]=<span class="literal">false</span>;<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n;j++)&#123;<span class="keyword">while</span>(choosing[j]);</span><br><span class="line"><span class="keyword">while</span>((num[i]!=<span class="number">0</span>)&amp;&amp;(num[j],j)&lt;(num[i],i));&#125;</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">临界区</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line">num[i]=<span class="number">0</span>;</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">剩余区</span></span><br><span class="line"><span class="comment">**************/</span></span><br></pre></td></tr></table></figure></li>
+<li>满足互斥进入：Pi在临界区内，Pk试图进入，一定有(num[i],i)&lt;(num[k],k),Pk循环等待；</li>
+<li>满足有空让进：如果没有进程在临界区中，最小序号的进程一定能够进入；</li>
+<li>满足有限等待：离开临界区的进程再次进入一定排在最后（FIFO），所以任一个想要进入进程至多等n个进程。</li>
+<li>问题：有点复杂!</li>
+</ul>
+<p>&ensp; </p>
+<h3 id="临界区保护的另一类解法"><a href="#临界区保护的另一类解法" class="headerlink" title="临界区保护的另一类解法"></a>临界区保护的另一类解法</h3><ul>
+<li>回想一下<strong>临界区：只允许一个进程进入</strong>，另外一个进程进入意味着什么？<ul>
+<li><strong>被调度</strong>：另一个进程只有被调度才能执行，才可能进入临界区，所以我们如何组织调度？</li>
+</ul>
+</li>
+</ul>
+<p>&ensp;<br><strong>5. 开关中断法</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 进程 Pi</span></span><br><span class="line">cli();  <span class="comment">//cli()--关 中断</span></span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">临界区</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line">sti();  <span class="comment">//sti()--开 中断</span></span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">剩余区</span></span><br><span class="line"><span class="comment">**************/</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>问题：多CPU（多核）时，不好使!</li>
+</ul>
+<p>&ensp;<br><strong>6. 硬件原子指令法</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">TestAndSet</span><span class="params">(<span class="keyword">boolean</span> &amp;x)</span></span></span><br><span class="line"><span class="function"></span>&#123;   <span class="comment">//下面三条语句一次执行完毕</span></span><br><span class="line">    <span class="keyword">boolean</span> rv =x;</span><br><span class="line">    x=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> rv;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 进程 Pi</span></span><br><span class="line"><span class="keyword">while</span>(TestAndSet(&amp;lock));</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">临界区</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line">lock=<span class="literal">false</span>;</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">剩余区</span></span><br><span class="line"><span class="comment">**************/</span></span><br></pre></td></tr></table></figure>
+
+
+
+                      
+
+                        
+        </div>
+        <div class="article-info article-info-index">
           
+              
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">阅读词汇</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">剑11</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">生物篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+                
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			
 				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/"
+					<a href="/categories/操作系统/"
 						class="article-tag-list-link color5">
-						备考雅思
-					</a>
-				</li>
-				
-				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/词汇/"
-						class="article-tag-list-link color3">
-						词汇
+						操作系统
 					</a>
 				</li>
 				
 		</ul>
 	</div>
 	
+                  
+
+                      
+                        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/20/2021-03-20-OS5-signalProtect-md/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+                          
+                            <div class="clearfix"></div>
+        </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/03/19/2021-03-19-OS4-cpuSchedule-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CPU调度算法-OS-4</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
 
     
+      <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
 
 
+        
+          
+
+                
+
+                      
+
+                            
+
+                                
+                                      
               </div>
             </div>
           </div>
@@ -312,9 +500,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
