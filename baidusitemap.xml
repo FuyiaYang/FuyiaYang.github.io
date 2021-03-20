@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2021/03/20/2021-03-20-OS6-deadlock-md/</loc>
+    <lastmod>2021-03-20</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2021/03/19/2021-03-19-OS4-cpuSchedule-md/</loc>
+    <lastmod>2021-03-20</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2021/03/20/2021-03-20-OS5-signalProtect-md/</loc>
     <lastmod>2021-03-20</lastmod>
   </url>  <url>
@@ -9,9 +15,6 @@
   </url>  <url>
     <loc>http://yoursite.com/2021/03/19/2021-03-19-leetcode-160-md/</loc>
     <lastmod>2021-03-20</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2021/03/19/2021-03-19-OS4-cpuSchedule-md/</loc>
-    <lastmod>2021-03-19</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2021/03/18/2021-03-18-OS3-userLevelThread-md/</loc>
     <lastmod>2021-03-19</lastmod>
