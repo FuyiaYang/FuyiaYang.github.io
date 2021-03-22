@@ -6,17 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 单调栈 | FuyiaYang</title>
+  <title>多级页表与快表-OS-8 | FuyiaYang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Fuyia&#39;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="FuyiaYang">
-<meta property="og:url" content="http://yoursite.com/tags/%E5%8D%95%E8%B0%83%E6%A0%88/index.html">
+  <meta name="description" content="&amp;ensp; 各个程序是如何放在内存上的？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多级页表与快表-OS-8">
+<meta property="og:url" content="http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/index.html">
 <meta property="og:site_name" content="FuyiaYang">
-<meta property="og:description" content="Fuyia&#39;s Blog">
+<meta property="og:description" content="&amp;ensp; 各个程序是如何放在内存上的？">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/pageTable.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/pageTable2.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/multiPageTable.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/TLB.jpg">
+<meta property="article:published_time" content="2021-03-22T11:09:45.000Z">
+<meta property="article:modified_time" content="2021-03-22T11:52:18.926Z">
 <meta property="article:author" content="杨润钊的博客">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/pageTable.jpg">
   
     <link rel="alternative" href="/atom.xml" title="FuyiaYang" type="application/atom+xml">
   
@@ -189,85 +197,288 @@
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                
-  
-  
+                <article id="post-2021-03-22-OS8-multiPageTable-md"
+  class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
     
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/06/2021-03-06-leetcode-503-md/" class="archive-article-date">
-  	<time datetime="2021-03-06T08:07:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-06</time>
+        <h1 class="article-title" itemprop="name">
+          多级页表与快表-OS-8
+        </h1>
+        
+          
+
+          
+            <a href="/2021/03/22/2021-03-22-OS8-multiPageTable-md/" class="archive-article-date">
+  	<time datetime="2021-03-22T11:09:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-22</time>
 </a>
-        </div>
-    	 
-    
-      <h1 itemprop="name">
-        <a class="archive-article-title" href="/2021/03/06/2021-03-06-leetcode-503-md/">
-          下一个更大元素II-力扣算法-503
-        </a>
-      </h1>
+
+              <!-- 开始添加字数统计-->
+              <!-- 
+                <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text"> 字数统计: </span>
+      <span class="post-count">
+        647字
+      </span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text"> 阅读时长: </span>
+      <span class="post-count">
+        2分
+      </span>
+    </span>
+  </span>
+</div>
+                   -->
+
+              
+                <span class="archive-article-date">
+                  本文阅读次数 <span id="busuanzi_value_page_pv"></span>
+                </span>
+                
+
+
+
+                  
+      </header>
+
       
+        <div class="article-entry" itemprop="articleBody">
           
-        <div class="article-info info-on-right">
+                    <p>&ensp; 各个程序是如何放在内存上的？</p>
+<a id="more"></a>
+
+<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><ul>
+<li>目的：解决内存分区导致的内存效率问题 – 内存碎片</li>
+<li>做法：将内存分成页<ul>
+<li>操作系统在初始化的时候，将内存分成一页一页的；（一页框≈4K）</li>
+<li>针对每个段内存请求，系统一页一页地分配给这个段。</li>
+</ul>
+</li>
+<li>优点：不需要内存紧缩、内存浪费小；</li>
+<li>为了获得准确的物理地址，所以需要<strong>页表</strong>。</li>
+</ul>
+<div align="center">
+    <img src="pageTable.jpg" alt="页表" width="70%"/>
+</div>
+<div align="center" style="color:gray; font-size:5px">
+    图1 页表
+</div>
+
+<p>&ensp;</p>
+<h3 id="多级页表与快表"><a href="#多级页表与快表" class="headerlink" title="多级页表与快表"></a>多级页表与快表</h3><ul>
+<li>为了提高内存空间利用率，每个页应该小，但是页小了页表就大了，页表放置就成了问题。<ul>
+<li>页面尺寸通常为4K，而地址是32位的，有$ 2^{20} $个页面；</li>
+<li>$ 2^{20} $个页表项都得放在内存中，需要4M内存；系统中并发10个进程，就需要40M内存；</li>
+<li>实际上<strong>大部分逻辑地址根本不会用到</strong>。</li>
+</ul>
+</li>
+<li>需要改进方法。</li>
+</ul>
+<p>&ensp;<br><strong>第一种尝试：删除空页表框</strong></p>
+<div align="center">
+    <img src="pageTable2.jpg" alt="删除空页框的页表" width="70%"/>
+</div>
+<div align="center" style="color:gray; font-size:5px">
+    图2 删除空页框的页表
+</div>
+
+<ul>
+<li>这样页表中的页号不连续，就需要比较、查找，折半查找的代价：如果是4M内存，则每次执行指令进行寻址都需要额外查找10次页表（访问内存）。<ul>
+<li>和连续页号的页表相比：连续页号的页表只需要额外查找1次的代价；</li>
+</ul>
+</li>
+<li>第一次尝试<strong>失败</strong>！</li>
+<li>问：如何让页表既是连续的，用占用内存少？</li>
+</ul>
+<p>&ensp;<br><strong>第二种尝试：多级页表</strong>，即页目录表+页表</p>
+<div align="center">
+    <img src="multiPageTable.jpg" alt="多级页表" width="70%"/>
+</div>
+<div align="center" style="color:gray; font-size:5px">
+    图3 多级页表
+</div>
+
+<ul>
+<li>上图中，页表项占用空间大小：$ 4 \times 2^{10} \times 4 = 16K &lt;&lt; 4M $</li>
+<li>问题：多级页表提高了空间效率，但每增加了访问内存的次数。<ul>
+<li>（一级页表就要多访问内存一次，尤其是64位系统）</li>
+</ul>
+</li>
+</ul>
+<p>&ensp;<br><strong>最终方案：快表（TLB）+多级页表</strong></p>
+<ul>
+<li><p>TLB页表缓存</p>
+<ul>
+<li>为CPU的一种缓存，是一组相联快速存储，是寄存器；</li>
+<li>可介于CPU和CPU缓存之间，或在CPU缓存和主存之间；<div align="center">
+<img src="TLB.jpg" alt="TLB" width="70%"/>
+</div>
+<div align="center" style="color:gray; font-size:5px">
+图4 TLB
+</div>
+</li>
+</ul>
+</li>
+<li><p>TLB命中时效率会很高，未命中时效率降低</p>
+<ul>
+<li>有效访问时间$ =HitR\times \left ( TLB+MA\right )+\left (1-HitR \right )\times\left(TLB+n\times MA\right ) $</li>
+<li>$HitR$：命中率</li>
+<li>$MA$：内存访问时间</li>
+<li>$TLB$：TLB访问时间</li>
+<li>$n$：页表级数</li>
+</ul>
+</li>
+<li><p>TLB越大，命中率越高；但TLB很贵，所以TLB的大小通常为64KB至1024KB。</p>
+<ul>
+<li>为什么[64,1024]就够了？</li>
+<li>因为程序的地址访问存在<strong>空间局部性</strong>（Locality in Space），体现在for、while循环等。</li>
+</ul>
+</li>
+</ul>
+
+                      
+
+                        
+        </div>
+        <div class="article-info article-info-index">
           
+              
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法题</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单调栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+                
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			
 				<li class="article-tag-list-item">
-					<a href="/categories/力扣算法/"
+					<a href="/categories/操作系统/"
 						class="article-tag-list-link color5">
-						力扣算法
+						操作系统
 					</a>
 				</li>
 				
 		</ul>
 	</div>
 	
+                  
+
+                      
+                        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+                          
+                            <div class="clearfix"></div>
+        </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/03/22/2021-03-22-OS7-memoryUseAndSegment-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">内存使用与分段-OS-7</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
 
     
+      <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
 
 
+        
+          
+
+                
+
+                      
+
+                            
+
+                                
+                                      
               </div>
             </div>
           </div>
@@ -305,9 +516,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
