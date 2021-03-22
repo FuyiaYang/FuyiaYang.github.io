@@ -6,26 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>下一个更大元素II-力扣算法-503 | FuyiaYang</title>
+  <title>位1的个数-力扣算法-191 | FuyiaYang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;ensp; 2021年03月06日 每日一题「力扣算法第503题」">
+  <meta name="description" content="&amp;ensp; 2021年03月22日 每日一题「力扣算法第191题」">
 <meta property="og:type" content="article">
-<meta property="og:title" content="下一个更大元素II-力扣算法-503">
-<meta property="og:url" content="http://yoursite.com/2021/03/06/2021-03-06-leetcode-503-md/index.html">
+<meta property="og:title" content="位1的个数-力扣算法-191">
+<meta property="og:url" content="http://yoursite.com/2021/03/22/2021-03-22-leetcode-191-md/index.html">
 <meta property="og:site_name" content="FuyiaYang">
-<meta property="og:description" content="&amp;ensp; 2021年03月06日 每日一题「力扣算法第503题」">
+<meta property="og:description" content="&amp;ensp; 2021年03月22日 每日一题「力扣算法第191题」">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2021/03/06/2021-03-06-leetcode-503-md/leetcode503-ques.jpg">
-<meta property="og:image" content="http://yoursite.com/2021/03/06/2021-03-06-leetcode-503-md/leetcode503-flow.jpg">
-<meta property="og:image" content="http://yoursite.com/2021/03/06/2021-03-06-leetcode-503-md/leetcode503-res.jpg">
-<meta property="article:published_time" content="2021-03-06T08:07:59.000Z">
-<meta property="article:modified_time" content="2021-03-18T03:50:39.503Z">
+<meta property="og:image" content="http://yoursite.com/2021/03/22/2021-03-22-leetcode-191-md/leetcode191-ques.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/22/2021-03-22-leetcode-191-md/leetcode191-res.jpg">
+<meta property="article:published_time" content="2021-03-22T03:43:26.000Z">
+<meta property="article:modified_time" content="2021-03-22T04:04:11.958Z">
 <meta property="article:author" content="杨润钊的博客">
 <meta property="article:tag" content="算法题">
-<meta property="article:tag" content="单调栈">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2021/03/06/2021-03-06-leetcode-503-md/leetcode503-ques.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2021/03/22/2021-03-22-leetcode-191-md/leetcode191-ques.jpg">
   
     <link rel="alternative" href="/atom.xml" title="FuyiaYang" type="application/atom+xml">
   
@@ -198,7 +196,7 @@
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-2021-03-06-leetcode-503-md"
+                <article id="post-2021-03-22-leetcode-191-md"
   class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -206,14 +204,14 @@
         
     
         <h1 class="article-title" itemprop="name">
-          下一个更大元素II-力扣算法-503
+          位1的个数-力扣算法-191
         </h1>
         
           
 
           
-            <a href="/2021/03/06/2021-03-06-leetcode-503-md/" class="archive-article-date">
-  	<time datetime="2021-03-06T08:07:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-06</time>
+            <a href="/2021/03/22/2021-03-22-leetcode-191-md/" class="archive-article-date">
+  	<time datetime="2021-03-22T03:43:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-22</time>
 </a>
 
               <!-- 开始添加字数统计-->
@@ -224,7 +222,7 @@
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text"> 字数统计: </span>
       <span class="post-count">
-        660字
+        287字
       </span>
     </span>
   </span>
@@ -235,7 +233,7 @@
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text"> 阅读时长: </span>
       <span class="post-count">
-        2分
+        1分
       </span>
     </span>
   </span>
@@ -256,35 +254,42 @@
       
         <div class="article-entry" itemprop="articleBody">
           
-                    <p>&ensp; 2021年03月06日 每日一题「力扣算法第503题」</p>
+                    <p>&ensp; 2021年03月22日 每日一题「力扣算法第191题」</p>
 <a id="more"></a>
-
-<h3 id="题目展现"><a href="#题目展现" class="headerlink" title="题目展现"></a>题目展现</h3><p>来源：<a href="https://leetcode-cn.com/problems/next-greater-element-ii/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/next-greater-element-ii/</a></p>
+<h3 id="题目展现"><a href="#题目展现" class="headerlink" title="题目展现"></a>题目展现</h3><p>来源：<a href="https://leetcode-cn.com/problems/number-of-1-bits/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/number-of-1-bits/</a></p>
 <div align="center">
-    <img src="leetcode503-ques.jpg" alt="下一个更大元素II-503rd" width="60%"/>
+    <img src="leetcode191-ques.jpg" alt="位1的个数-191st" width="60%"  />
 </div>
 <div align="center" style="color:gray; font-size:5px">
-    图1 下一个更大元素II-503rd
+    图1 位1的个数-191st
 </div>
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p><strong>方法一：蛮力算法</strong><br>&nbsp;<br>&emsp;&emsp;为了找到每个位置元素的下一个最大值，最直接能想到的方法就是<strong>让nums[]里每个元素</strong>（一级循环）与后面的元素<strong>依次进行比较</strong>（二级循环），直到每个元素找到第一个下一个更大值，若二级循环已经执行一圈仍找不到下一个更大值，即该元素的返回值对应为-1。<br>&nbsp;<br>&emsp;&emsp;时间复杂度：<br>&emsp;&emsp;平均：$ O\left(n^2\right) $<br>&emsp;&emsp;最好：$ O\left(n\right) $<br>&emsp;&emsp;最差：$ O\left(n^2\right) $<br>&nbsp;<br><strong>方法二：单调栈</strong><br>&nbsp;<br>&emsp;&emsp;蛮力算法将俩俩元素进行比较，该过程有很明显的重复比较。我们使用<strong>单调栈</strong>这个数据结构，整个过程如图2所示。<br>&nbsp;<br><strong>步骤：</strong><br>&emsp;&emsp;1.建立返回数组ret，长度为len(nums)，元素默认值为-1；<br>&emsp;&emsp;2.为了达到循环比较的目的，我们将nums数组的前n-1个元素”赋值”到nums数组的后面，获得新nums数组[1,3,4,2,1,3,4]；<br>&emsp;&emsp;3.让nums数组按照<strong>遍历顺序</strong>依次准备进栈，进栈前将元素与栈顶元素进行比较：如果 <strong>栈顶元素</strong> &lt; <strong>待进栈元素</strong>，则将栈顶元素出战，并在ret数组中对应位置赋予待进栈元素的值，反之 待进栈元素 直接进栈；<br>&emsp;&emsp;4.返回最终ret数组。</p>
-<div align="center">
-    <img src="leetcode503-flow.jpg" alt="单调栈" width="80%"/>
-</div>
-<div align="center" style="color:gray; font-size:5px">
-    图2 单调栈
-</div>
-
-<p>&emsp;&emsp;时间复杂度：<br>&emsp;&emsp;平均：$ O\left(n\right) $<br>&emsp;&emsp;最好：$ O\left(n\right) $<br>&emsp;&emsp;最差：$ O\left(n\right) $</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python语言</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">nextGreaterElements</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        n = len(nums)</span><br><span class="line">        ret = [<span class="number">-1</span>] * n</span><br><span class="line">        stk = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n * <span class="number">2</span> - <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">while</span> stk <span class="keyword">and</span> nums[stk[<span class="number">-1</span>]] &lt; nums[i % n]:</span><br><span class="line">                ret[stk.pop()] = nums[i % n]</span><br><span class="line">            stk.append(i % n)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>本题考查<strong>汉明重量（Hamming Weight）</strong>，实现方式很简单！只用了一行代码…<br>本篇主要介绍一下<strong>汉明距离</strong>和<strong>汉明重量</strong>！</p>
+<ul>
+<li><strong>汉明距离</strong><ul>
+<li>汉明距离是一个概念，它表示两个（相同长度）字对应位不同的数量；</li>
+<li>对两个字符串进行异或运算，并统计结果为1的个数，那么这个数就是汉明距离。</li>
+</ul>
+</li>
+<li><strong>汉明重量</strong><ul>
+<li>汉明重量是一串符号中非零符号的个数；</li>
+<li>因此它等同于“和同样长度的全零符号串”的汉明距离；</li>
+<li>对于二进制字符串来说，就是<strong>1的个数</strong>，所以 11101 的汉明重量是4。</li>
+<li>可用于计算机网络的<strong>差错编码</strong>的检错和纠错！</li>
+</ul>
+</li>
+</ul>
+<p>&ensp;</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python语言</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hammingWeight</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> bin(n).count(<span class="string">"1"</span>)</span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
 <h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><div align="center">
-    <img src="leetcode503-res.jpg" alt="运行效果" width="427" height="106" />
+    <img src="leetcode191-res.jpg" alt="运行效果" width="421"/>
 </div>
 <div align="center" style="color:gray; font-size:5px">
-    图3 运行效果
+    图2 运行效果
 </div>
 
-<h3 id="个人总结"><a href="#个人总结" class="headerlink" title="个人总结"></a>个人总结</h3><p>&emsp;&emsp;如果单纯地使用<strong>栈</strong>结构，基于先进后出原则，我们只能依次与栈顶元素进行比较。但由于栈中元素是按照<strong>升序</strong>向下排列，如果nums数组中元素较多，且大部分呈<strong>降序</strong>排列，那么可以使用<strong>二分法</strong>稍微改进一下查找环节。但接下来的赋值操作仍需要逐一进行，所以时间复杂度不会有太大提升。</p>
+
 <br>
 <br>
 如文中有错误，欢迎和作者及时联系！
@@ -301,10 +306,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法题</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单调栈</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -377,7 +378,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/06/2021-03-06-leetcode-503-md/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/22/2021-03-22-leetcode-191-md/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -391,18 +392,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/03/09/2021-03-09-leetcode-1047-md/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          删除字符串中的所有相邻重复项-力扣算法-1047
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/10/IELTS11-T1-P3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">词汇-剑11-Test1-Passage3</div>
+    <a href="/2021/03/21/2021-03-21-leetcode-73-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">矩阵置零-力扣算法-73</div>
       <i class="icon-circle-right"></i>
     </a>
   
