@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2021/03/12/2021-03-12-leetcode-331-md/</loc>
+    <lastmod>2021-03-22</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2021/03/19/2021-03-19-leetcode-160-md/</loc>
+    <lastmod>2021-03-22</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2021/03/21/2021-03-21-leetcode-73-md/</loc>
+    <lastmod>2021-03-22</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2021/03/20/2021-03-20-OS6-deadlock-md/</loc>
     <lastmod>2021-03-20</lastmod>
   </url>  <url>
@@ -11,9 +20,6 @@
     <lastmod>2021-03-20</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2021/03/20/2021-03-20-leetcode-150-md/</loc>
-    <lastmod>2021-03-20</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2021/03/19/2021-03-19-leetcode-160-md/</loc>
     <lastmod>2021-03-20</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2021/03/18/2021-03-18-OS3-userLevelThread-md/</loc>
@@ -29,9 +35,6 @@
     <lastmod>2021-03-18</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2021/03/09/2021-03-09-leetcode-1047-md/</loc>
-    <lastmod>2021-03-18</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2021/03/12/2021-03-12-leetcode-331-md/</loc>
     <lastmod>2021-03-18</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2021/03/13/2021-03-13-leetcode-705-md/</loc>

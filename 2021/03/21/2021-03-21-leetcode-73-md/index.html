@@ -6,17 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | FuyiaYang</title>
+  <title>矩阵置零-力扣算法-73 | FuyiaYang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Fuyia&#39;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="FuyiaYang">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="&amp;ensp; 2021年03月21日 每日一题「力扣算法第73题」">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵置零-力扣算法-73">
+<meta property="og:url" content="http://yoursite.com/2021/03/21/2021-03-21-leetcode-73-md/index.html">
 <meta property="og:site_name" content="FuyiaYang">
-<meta property="og:description" content="Fuyia&#39;s Blog">
+<meta property="og:description" content="&amp;ensp; 2021年03月21日 每日一题「力扣算法第73题」">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2021/03/21/2021-03-21-leetcode-73-md/leetcode73-ques.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/21/2021-03-21-leetcode-73-md/leetcode73-flow.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/21/2021-03-21-leetcode-73-md/leetcode73-res1.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/21/2021-03-21-leetcode-73-md/leetcode73-res2.jpg">
+<meta property="article:published_time" content="2021-03-21T07:52:59.000Z">
+<meta property="article:modified_time" content="2021-03-22T03:14:59.931Z">
 <meta property="article:author" content="杨润钊的博客">
+<meta property="article:tag" content="算法题">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2021/03/21/2021-03-21-leetcode-73-md/leetcode73-ques.jpg">
   
     <link rel="alternative" href="/atom.xml" title="FuyiaYang" type="application/atom+xml">
   
@@ -189,364 +198,263 @@
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
+                <article id="post-2021-03-21-leetcode-73-md"
+  class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+    
+        <h1 class="article-title" itemprop="name">
+          矩阵置零-力扣算法-73
+        </h1>
+        
+          
+
+          
+            <a href="/2021/03/21/2021-03-21-leetcode-73-md/" class="archive-article-date">
+  	<time datetime="2021-03-21T07:52:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-21</time>
+</a>
+
+              <!-- 开始添加字数统计-->
+              <!-- 
+                <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text"> 字数统计: </span>
+      <span class="post-count">
+        884字
+      </span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text"> 阅读时长: </span>
+      <span class="post-count">
+        4分
+      </span>
+    </span>
+  </span>
+</div>
+                   -->
+
+              
+                <span class="archive-article-date">
+                  本文阅读次数 <span id="busuanzi_value_page_pv"></span>
+                </span>
                 
-  
-  
-    
-    
+
+
+
+                  
+      </header>
+
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/10/IELTS11-T1-P3/" class="archive-article-date">
-  	<time datetime="2020-04-10T14:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
-</a>
-        </div>
-    	 
-    
-      <h1 itemprop="name">
-        <a class="archive-article-title" href="/2020/04/10/IELTS11-T1-P3/">
-          词汇-剑11-Test1-Passage3
-        </a>
-      </h1>
-      
+        <div class="article-entry" itemprop="articleBody">
           
-        <div class="article-info info-on-right">
+                    <p>&ensp; 2021年03月21日 每日一题「力扣算法第73题」</p>
+<a id="more"></a>
+<h3 id="题目展现"><a href="#题目展现" class="headerlink" title="题目展现"></a>题目展现</h3><p>来源：<a href="https://leetcode-cn.com/problems/set-matrix-zeroes/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/set-matrix-zeroes/</a></p>
+<div align="center">
+    <img src="leetcode73-ques.jpg" alt="矩阵置零-73rd" width="60%"  />
+</div>
+<div align="center" style="color:gray; font-size:5px">
+    图1 矩阵置零-73rd
+</div>
+
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>我们需要对matrix中所有0元素所在<strong>行</strong>和<strong>列</strong>全部赋上0值，所以需要用一些结构来存储需要赋0值的行和列。</p>
+<p><strong>方法一：两个队列</strong></p>
+<ul>
+<li>可以使用row和col两个队列，分别存储matrix中0元素所在的行和列，然后根据这两个队列，对matrix赋0值。</li>
+<li>步骤：<ul>
+<li>1.扫描一边matrix，在row中记录所有0元素所在的行，在col中记录所有0元素所在的列；</li>
+<li>2.如果col和row队列为空（matrix中没有0元素），则返回matrix即可；</li>
+<li>3.否则，扫描一边row，修改所有需要更改的行，扫描一边col，修改所有需要更改的列；</li>
+<li>4.返回matrix。</li>
+</ul>
+</li>
+<li>空间复杂度：$ O\left(n+m\right) $</li>
+</ul>
+<div align="center">
+    <img src="leetcode73-flow.jpg" alt="流程图-73rd" width="70%"/>
+</div>
+<div align="center" style="color:gray; font-size:5px">
+    图2 流程图-73rd
+</div>
+
+<p><strong>方法二：两个变量</strong></p>
+<ul>
+<li>为了减少内存消耗，可以使用matrix的第一行记录每一列是否有0元素，用第一列记录每一行是否有0元素；</li>
+<li>为此，需要先用两个变量firRow和firCol分别记录原matrix的第一行和第一列是否有0元素。</li>
+<li>步骤：<ul>
+<li>1.扫描一边matrix的首行和首列，若存在0元素，则将相应的firRow或firCol修改为<strong>Ture</strong>；</li>
+<li>2.扫描一边matrix[1][1]~matrix[-1][-1]，如果存在0元素，将相对应得matrix[i][0]和matrix[0][j]改为0；</li>
+<li>3.根据matrix[i][0]和matrix[0][j]，修改matrix对应行和列；</li>
+<li>4.根据firRow和firCol，修改matrix首行和首列。</li>
+</ul>
+</li>
+<li>空间复杂度：$ O\left(1\right) $</li>
+</ul>
+<p>&ensp;</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一：两个队列--python语言</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setZeroes</span><span class="params">(self, matrix)</span>:</span></span><br><span class="line">        <span class="comment">#扫描一遍，记录元素值为0的横坐标队列[i1,i2,...,in],记录元素值为0的纵坐标队列[j1,j2,...,jn]</span></span><br><span class="line">        <span class="comment">#根据两个队列，为数组赋0值</span></span><br><span class="line">        row=[]</span><br><span class="line">        col=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(matrix)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(len(matrix[i])):</span><br><span class="line">                <span class="keyword">if</span> matrix[i][j]==<span class="number">0</span>:</span><br><span class="line">                    row.append(i)</span><br><span class="line">                    col.append(j)</span><br><span class="line">        <span class="keyword">if</span> len(row)==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> matrix</span><br><span class="line">        <span class="comment">#排序</span></span><br><span class="line">        row.sort()</span><br><span class="line">        col.sort()</span><br><span class="line">        <span class="comment">#删除重复项</span></span><br><span class="line">        i=<span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span>(i&lt;len(row)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> row[i]==row[i+<span class="number">1</span>]:</span><br><span class="line">                row.pop(i)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                i+=<span class="number">1</span></span><br><span class="line">        j=<span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span>(j&lt;len(col)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> col[j]==col[j+<span class="number">1</span>]:</span><br><span class="line">                col.pop(j)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                j+=<span class="number">1</span></span><br><span class="line">        <span class="comment">#赋0值</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> row:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(len(matrix[<span class="number">0</span>])):</span><br><span class="line">                matrix[i][j]=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> col:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(matrix)):</span><br><span class="line">                matrix[i][j]=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二：两个变量--python语言</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setZeroes</span><span class="params">(self, matrix)</span>:</span></span><br><span class="line">        <span class="comment">#首先用两个变量记录matrix的第一行和第一列是否有0值</span></span><br><span class="line">        firRow=<span class="literal">False</span></span><br><span class="line">        firCol=<span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(matrix)):</span><br><span class="line">            <span class="keyword">if</span> matrix[i][<span class="number">0</span>]==<span class="number">0</span>:</span><br><span class="line">                firCol=<span class="literal">True</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(matrix[<span class="number">0</span>])):</span><br><span class="line">            <span class="keyword">if</span> matrix[<span class="number">0</span>][j]==<span class="number">0</span>:</span><br><span class="line">                firRow=<span class="literal">True</span></span><br><span class="line">        <span class="comment">#扫描一遍，在matrix[0][j]记录元素值为0的横坐标,在matrix[i][0]记录元素值为0的纵坐标队列</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(matrix)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,len(matrix[i])):</span><br><span class="line">                <span class="keyword">if</span> matrix[i][j]==<span class="number">0</span>:</span><br><span class="line">                    matrix[i][<span class="number">0</span>]=<span class="number">0</span></span><br><span class="line">                    matrix[<span class="number">0</span>][j]=<span class="number">0</span></span><br><span class="line">        <span class="comment">#根据 matrix[i][0] 和 matrix[0][j] 为matrix赋0值</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(matrix)):</span><br><span class="line">            <span class="keyword">if</span> matrix[i][<span class="number">0</span>]==<span class="number">0</span>:</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(len(matrix[<span class="number">0</span>])):</span><br><span class="line">                    matrix[i][j]=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,len(matrix[<span class="number">0</span>])):</span><br><span class="line">            <span class="keyword">if</span> matrix[<span class="number">0</span>][j]==<span class="number">0</span>:</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> range(len(matrix)):</span><br><span class="line">                    matrix[i][j]=<span class="number">0</span> </span><br><span class="line">        <span class="comment">#根据 firRow 和 firCol 分别给 matrix[0][j] 和 matrix[i][0] 赋值</span></span><br><span class="line">        <span class="keyword">if</span> firRow==<span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(len(matrix[<span class="number">0</span>])):</span><br><span class="line">                matrix[<span class="number">0</span>][j]=<span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> firCol==<span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(matrix)):</span><br><span class="line">                matrix[i][<span class="number">0</span>]=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
+<h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><div align="center">
+    <img src="leetcode73-res1.jpg" alt="方法一：两个队列--运行效果" width="421"/>
+</div>
+<div align="center" style="color:gray; font-size:5px">
+    图3 方法一：两个队列--运行效果
+</div>
+<br>
+<div align="center">
+    <img src="leetcode73-res2.jpg" alt="方法二：两个变量--运行效果" width="421"/>
+</div>
+<div align="center" style="color:gray; font-size:5px">
+    图4 方法二：两个变量--运行效果
+</div>
+
+<br>
+<br>
+如文中有错误，欢迎和作者及时联系！
+                      
+
+                        
+        </div>
+        <div class="article-info article-info-index">
           
+              
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">阅读词汇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法题</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">剑11</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">生物篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+                
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			
 				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/"
+					<a href="/categories/力扣算法/"
 						class="article-tag-list-link color5">
-						备考雅思
-					</a>
-				</li>
-				
-				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/词汇/"
-						class="article-tag-list-link color3">
-						词汇
+						力扣算法
 					</a>
 				</li>
 				
 		</ul>
 	</div>
 	
+                  
+
+                      
+                        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/21/2021-03-21-leetcode-73-md/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+                          
+                            <div class="clearfix"></div>
+        </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/08/IELTS11-T1-P2/" class="archive-article-date">
-  	<time datetime="2020-04-08T12:55:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
-        </div>
-    	 
-    
-      <h1 itemprop="name">
-        <a class="archive-article-title" href="/2020/04/08/IELTS11-T1-P2/">
-          词汇-剑11-Test1-Passage2
-        </a>
-      </h1>
-      
-          
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">阅读词汇</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">剑11</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">水利篇</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/"
-						class="article-tag-list-link color5">
-						备考雅思
-					</a>
-				</li>
-				
-				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/词汇/"
-						class="article-tag-list-link color3">
-						词汇
-					</a>
-				</li>
-				
-		</ul>
-	</div>
-	
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/08/IELTS11-T1-S1/" class="archive-article-date">
-  	<time datetime="2020-04-08T12:55:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
-        </div>
-    	 
-    
-      <h1 itemprop="name">
-        <a class="archive-article-title" href="/2020/04/08/IELTS11-T1-S1/">
-          词汇-剑11-Test1-Passage1
-        </a>
-      </h1>
-      
-          
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">阅读词汇</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">剑11</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">农业篇</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/"
-						class="article-tag-list-link color5">
-						备考雅思
-					</a>
-				</li>
-				
-				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/词汇/"
-						class="article-tag-list-link color3">
-						词汇
-					</a>
-				</li>
-				
-		</ul>
-	</div>
-	
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/06/ielts11-1-listening/" class="archive-article-date">
-  	<time datetime="2020-04-06T11:54:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-06</time>
-</a>
-        </div>
-    	 
-    
-      <h1 itemprop="name">
-        <a class="archive-article-title" href="/2020/04/06/ielts11-1-listening/">
-          句式-剑11-Test1-听力
-        </a>
-      </h1>
-      
-          
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">剑11</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">英语句式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">听力</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/"
-						class="article-tag-list-link color5">
-						备考雅思
-					</a>
-				</li>
-				
-				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/句式/"
-						class="article-tag-list-link color3">
-						句式
-					</a>
-				</li>
-				
-		</ul>
-	</div>
-	
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/05/ielts-1/" class="archive-article-date">
-  	<time datetime="2020-04-05T09:16:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
-</a>
-        </div>
-    	 
-    
-      <h1 itemprop="name">
-        <a class="archive-article-title" href="/2020/04/05/ielts-1/">
-          词汇-剑12-Test8-Passage3
-        </a>
-      </h1>
-      
-          
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">阅读词汇</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">剑12</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">职场篇</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/"
-						class="article-tag-list-link color5">
-						备考雅思
-					</a>
-				</li>
-				
-				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/词汇/"
-						class="article-tag-list-link color3">
-						词汇
-					</a>
-				</li>
-				
-		</ul>
-	</div>
-	
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/03/20/2021-03-20-OS6-deadlock-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">死锁处理-OS-6</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
 
     
+      <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
 
 
+        
+          
+
+                
+
+                      
+
+                            
+
+                                
+                                      
               </div>
             </div>
           </div>
@@ -584,8 +492,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
