@@ -6,22 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>词汇-剑11-Test1-Passage1 | FuyiaYang</title>
+  <title>扁平化嵌套列表迭代器-力扣算法-341 | FuyiaYang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;ensp;本篇单词全部总结自「剑雅11 测试1 第1篇阅读」">
+  <meta name="description" content="&amp;ensp; 2021年03月23日 每日一题「力扣算法第341题」">
 <meta property="og:type" content="article">
-<meta property="og:title" content="词汇-剑11-Test1-Passage1">
-<meta property="og:url" content="http://yoursite.com/2020/04/08/IELTS11-T1-S1/index.html">
+<meta property="og:title" content="扁平化嵌套列表迭代器-力扣算法-341">
+<meta property="og:url" content="http://yoursite.com/2021/03/23/2021-03-23-leetcode-341-md/index.html">
 <meta property="og:site_name" content="FuyiaYang">
-<meta property="og:description" content="&amp;ensp;本篇单词全部总结自「剑雅11 测试1 第1篇阅读」">
+<meta property="og:description" content="&amp;ensp; 2021年03月23日 每日一题「力扣算法第341题」">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-08T12:55:27.000Z">
-<meta property="article:modified_time" content="2021-03-09T06:09:18.084Z">
+<meta property="og:image" content="http://yoursite.com/2021/03/23/2021-03-23-leetcode-341-md/leetcode341-ques.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/23/2021-03-23-leetcode-341-md/leetcode341-flow.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/23/2021-03-23-leetcode-341-md/leetcode341-res.jpg">
+<meta property="article:published_time" content="2021-03-23T03:07:35.000Z">
+<meta property="article:modified_time" content="2021-03-23T03:55:00.068Z">
 <meta property="article:author" content="杨润钊的博客">
-<meta property="article:tag" content="阅读词汇">
-<meta property="article:tag" content="剑11">
-<meta property="article:tag" content="农业篇">
+<meta property="article:tag" content="算法题">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="递归">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2021/03/23/2021-03-23-leetcode-341-md/leetcode341-ques.jpg">
   
     <link rel="alternative" href="/atom.xml" title="FuyiaYang" type="application/atom+xml">
   
@@ -194,7 +198,7 @@
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-IELTS11-T1-S1"
+                <article id="post-2021-03-23-leetcode-341-md"
   class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -202,14 +206,14 @@
         
     
         <h1 class="article-title" itemprop="name">
-          词汇-剑11-Test1-Passage1
+          扁平化嵌套列表迭代器-力扣算法-341
         </h1>
         
           
 
           
-            <a href="/2020/04/08/IELTS11-T1-S1/" class="archive-article-date">
-  	<time datetime="2020-04-08T12:55:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
+            <a href="/2021/03/23/2021-03-23-leetcode-341-md/" class="archive-article-date">
+  	<time datetime="2021-03-23T03:07:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-23</time>
 </a>
 
               <!-- 开始添加字数统计-->
@@ -220,7 +224,7 @@
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text"> 字数统计: </span>
       <span class="post-count">
-        367字
+        397字
       </span>
     </span>
   </span>
@@ -252,142 +256,56 @@
       
         <div class="article-entry" itemprop="articleBody">
           
-                    <p>&ensp;本篇单词全部总结自「剑雅11 测试1 第1篇阅读」</p>
+                    <p>&ensp; 2021年03月23日 每日一题「力扣算法第341题」</p>
 <a id="more"></a>
+<h3 id="题目展现"><a href="#题目展现" class="headerlink" title="题目展现"></a>题目展现</h3><p>来源：<a href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/flatten-nested-list-iterator/</a></p>
+<div align="center">
+    <img src="leetcode341-ques.jpg" alt="扁平化嵌套列表迭代器-341st" width="60%"  />
+</div>
+<div align="center" style="color:gray; font-size:5px">
+    图1 扁平化嵌套列表迭代器-341st
+</div>
+
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>我们可以把<strong>嵌套的整型列表</strong>看成是一棵<strong>树</strong>。<br>把&ensp;<strong>整数</strong>&ensp;看做&ensp;<strong>叶子节点</strong>；&ensp;把&ensp;<strong>列表</strong>&ensp;看做&ensp;<strong>非叶子结点</strong>。<br>我们所要输出的结果就是这棵树的<strong>深度优先搜索</strong>顺序。</p>
+<p><strong>方法：递归</strong></p>
+<ul>
+<li>可以把&ensp;队列中的队列元素&ensp;看做是一个新的<strong>嵌套整型列表</strong>，用函数进行递归。</li>
+</ul>
+<div align="center">
+    <img src="leetcode341-flow.jpg" alt="流程图-341st" width="70%"/>
+</div>
+<div align="center" style="color:gray; font-size:5px">
+    图2 流程图-341st
+</div>
+
+<ul>
+<li>递归函数：<ul>
+<li>第一步：按队列顺序遍历输入队列的所有元素；<ul>
+<li>如果元素是整型：则插入res返回队列；</li>
+<li>如果元素不是整型（即为队列），则继续用函数递归；</li>
+</ul>
+</li>
+<li>第二步：递归结束后，获得的res队列就是我们所要求解的结果；</li>
+<li>第三步：编写&ensp;next()&ensp;和&ensp;hasNest()函数。</li>
+</ul>
+</li>
+<li>时间复杂度：$ O\left(n\right) $</li>
+<li>空间复杂度：$ O\left(n\right) $</li>
+</ul>
+<p>&ensp;</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python语言</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NestedIterator</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, nestedList)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Initialize your data structure here.</span></span><br><span class="line"><span class="string">        :type nestedList: List[NestedInteger]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.res=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nestedList:</span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">is</span> int:</span><br><span class="line">                self.res.append(i)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                self.recursion(i)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recursion</span><span class="params">(self,nL)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> nL <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> nL.isInteger():</span><br><span class="line">                self.res.append(nL.getInteger())</span><br><span class="line">            <span class="keyword">else</span>:<span class="comment">#nL is a list</span></span><br><span class="line">                nL=nL.getList()</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> nL:</span><br><span class="line">                    self.recursion(i)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">next</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.res.pop(<span class="number">0</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hasNext</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(self.res)!=<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
+<h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><div align="center">
+    <img src="leetcode341-res.jpg" alt="运行效果" width="421"/>
+</div>
+<div align="center" style="color:gray; font-size:5px">
+    图3 运行效果
+</div>
 
 
-<table>
-<thead>
-<tr>
-<th align="left">英文单词</th>
-<th align="left">中文翻译</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">conservative</td>
-<td align="left">adj.保守的<br>n.&ensp;保守派/守旧的</td>
-</tr>
-<tr>
-<td align="left">estimate</td>
-<td align="left">vi.&nbsp;估价/估计<br>n.&ensp;估计/估价/判断/看法</td>
-</tr>
-<tr>
-<td align="left">demographic</td>
-<td align="left">adj.人口统计学的/人口学的</td>
-</tr>
-<tr>
-<td align="left">hectare</td>
-<td align="left">n.&ensp;公顷</td>
-</tr>
-<tr>
-<td align="left">downturn</td>
-<td align="left">n.&ensp;楼层/叠架的一层</td>
-</tr>
-<tr>
-<td align="left">drastically</td>
-<td align="left">adv.彻底地/激烈地</td>
-</tr>
-<tr>
-<td align="left">proponent</td>
-<td align="left">n.&ensp;支持者/建议者</td>
-</tr>
-<tr>
-<td align="left">renewal</td>
-<td align="left">n.&ensp;更新/恢复/复兴/补充/革新/续借</td>
-</tr>
-<tr>
-<td align="left">sacrifice</td>
-<td align="left">n.&ensp;牺牲/祭品/供奉<br>vt.&nbsp;牺牲/献祭/亏本出售</td>
-</tr>
-<tr>
-<td align="left">take for granted</td>
-<td align="left">phr.认为…理所应当</td>
-</tr>
-<tr>
-<td align="left">verdant</td>
-<td align="left">adj.青翠的/翠绿的/没有经验的</td>
-</tr>
-<tr>
-<td align="left">ecozone</td>
-<td align="left">n.&ensp;生态区</td>
-</tr>
-<tr>
-<td align="left">arid</td>
-<td align="left">adj.干旱的/不毛的/荒芜的</td>
-</tr>
-<tr>
-<td align="left">rigour</td>
-<td align="left">n.&ensp;严厉的/严厉/苛刻/精确</td>
-</tr>
-<tr>
-<td align="left">more often than not now</td>
-<td align="left">phr.不尽如人意</td>
-</tr>
-<tr>
-<td align="left">hurricane</td>
-<td align="left">n.&ensp;飓风/暴风</td>
-</tr>
-<tr>
-<td align="left">monsoon</td>
-<td align="left">n.&ensp;季风/雨季/季候风</td>
-</tr>
-<tr>
-<td align="left">take sb’s toll</td>
-<td align="left">phr.为某人付出代价</td>
-</tr>
-<tr>
-<td align="left">optimum</td>
-<td align="left">adj.最适宜的<br>n.&ensp;最佳效果/最适宜条件</td>
-</tr>
-<tr>
-<td align="left">organically</td>
-<td align="left">adv.有机地/有组织地/器官上地</td>
-</tr>
-<tr>
-<td align="left">eliminate</td>
-<td align="left">vt.&nbsp;消除/排除</td>
-</tr>
-<tr>
-<td align="left">herbicide</td>
-<td align="left">n.&ensp;除草剂</td>
-</tr>
-<tr>
-<td align="left">fertiliser</td>
-<td align="left">n.&ensp;化肥</td>
-</tr>
-<tr>
-<td align="left">infectious</td>
-<td align="left">adj.传染的/传染性的/易传染的</td>
-</tr>
-<tr>
-<td align="left">methane</td>
-<td align="left">n.&ensp;甲烷/沼气</td>
-</tr>
-<tr>
-<td align="left">compost</td>
-<td align="left">n.&ensp;堆肥/混合物<br>vt.&nbsp;堆肥/施堆肥</td>
-</tr>
-<tr>
-<td align="left">tractor</td>
-<td align="left">n.&ensp;拖拉机/牵引机</td>
-</tr>
-<tr>
-<td align="left">plough</td>
-<td align="left">vt.&nbsp;犁/耕<br>vi.&nbsp;用犁耕田/开路</td>
-</tr>
-<tr>
-<td align="left">tray</td>
-<td align="left">n.&ensp;托盘/文件盒/隔底闸/无线电的发射箱</td>
-</tr>
-</tbody></table>
 <br>
 <br>
 如文中有错误，欢迎和作者及时联系！
-
-
-
-
-
                       
 
                         
@@ -400,15 +318,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">阅读词汇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法题</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">剑11</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">农业篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
         		</li>
       		
 		</ul>
@@ -420,16 +338,9 @@
 		<ul class="article-tag-list">
 			
 				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/"
+					<a href="/categories/力扣算法/"
 						class="article-tag-list-link color5">
-						备考雅思
-					</a>
-				</li>
-				
-				<li class="article-tag-list-item">
-					<a href="/categories/备考雅思/词汇/"
-						class="article-tag-list-link color3">
-						词汇
+						力扣算法
 					</a>
 				</li>
 				
@@ -484,7 +395,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/08/IELTS11-T1-S1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/23/2021-03-23-leetcode-341-md/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -498,18 +409,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/10/IELTS11-T1-P3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          词汇-剑11-Test1-Passage3
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/08/IELTS11-T1-P2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">词汇-剑11-Test1-Passage2</div>
+    <a href="/2021/03/22/2021-03-22-OS8-multiPageTable-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">多级页表与快表-OS-8</div>
       <i class="icon-circle-right"></i>
     </a>
   
