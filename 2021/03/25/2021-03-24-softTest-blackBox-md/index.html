@@ -6,28 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>设计哈希集合-力扣算法-705 | FuyiaYang</title>
+  <title>黑盒测试-软件测试-04 | FuyiaYang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;ensp; 2021年03月13日 每日一题「力扣算法第705题」">
+  <meta name="description" content="&amp;ensp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计哈希集合-力扣算法-705">
-<meta property="og:url" content="http://yoursite.com/2021/03/13/2021-03-13-leetcode-705-md/index.html">
+<meta property="og:title" content="黑盒测试-软件测试-04">
+<meta property="og:url" content="http://yoursite.com/2021/03/25/2021-03-24-softTest-blackBox-md/index.html">
 <meta property="og:site_name" content="FuyiaYang">
-<meta property="og:description" content="&amp;ensp; 2021年03月13日 每日一题「力扣算法第705题」">
+<meta property="og:description" content="&amp;ensp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2021/03/13/2021-03-13-leetcode-705-md/leetcode705-ques.jpg">
-<meta property="og:image" content="http://yoursite.com/2021/03/13/2021-03-13-leetcode-705-md/leetcode705-flow.jpg">
-<meta property="og:image" content="http://yoursite.com/2021/03/13/2021-03-13-leetcode-705-md/leetcode705-res1.jpg">
-<meta property="og:image" content="http://yoursite.com/2021/03/13/2021-03-13-leetcode-705-md/leetcode705-res2.jpg">
-<meta property="og:image" content="http://yoursite.com/2021/03/13/2021-03-13-leetcode-705-md/leetcode705-res3.jpg">
-<meta property="article:published_time" content="2021-03-13T08:50:08.000Z">
-<meta property="article:modified_time" content="2021-03-18T03:49:18.275Z">
+<meta property="og:image" content="http://yoursite.com/2021/03/25/2021-03-24-softTest-blackBox-md/title.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/25/2021-03-24-softTest-blackBox-md/com.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/25/2021-03-24-softTest-blackBox-md/pair.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/25/2021-03-24-softTest-blackBox-md/T3.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/03/25/2021-03-24-softTest-blackBox-md/var.jpg">
+<meta property="article:published_time" content="2021-03-25T00:56:01.000Z">
+<meta property="article:modified_time" content="2021-03-27T15:16:28.178Z">
 <meta property="article:author" content="杨润钊的博客">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="算法题">
-<meta property="article:tag" content="hash">
+<meta property="article:tag" content="黑盒测试">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2021/03/13/2021-03-13-leetcode-705-md/leetcode705-ques.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2021/03/25/2021-03-24-softTest-blackBox-md/title.jpg">
   
     <link rel="alternative" href="/atom.xml" title="FuyiaYang" type="application/atom+xml">
   
@@ -200,7 +198,7 @@
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-2021-03-13-leetcode-705-md"
+                <article id="post-2021-03-24-softTest-blackBox-md"
   class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -208,14 +206,14 @@
         
     
         <h1 class="article-title" itemprop="name">
-          设计哈希集合-力扣算法-705
+          黑盒测试-软件测试-04
         </h1>
         
           
 
           
-            <a href="/2021/03/13/2021-03-13-leetcode-705-md/" class="archive-article-date">
-  	<time datetime="2021-03-13T08:50:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
+            <a href="/2021/03/25/2021-03-24-softTest-blackBox-md/" class="archive-article-date">
+  	<time datetime="2021-03-25T00:56:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-25</time>
 </a>
 
               <!-- 开始添加字数统计-->
@@ -226,7 +224,7 @@
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text"> 字数统计: </span>
       <span class="post-count">
-        1.4k字
+        933字
       </span>
     </span>
   </span>
@@ -237,7 +235,7 @@
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text"> 阅读时长: </span>
       <span class="post-count">
-        5分
+        3分
       </span>
     </span>
   </span>
@@ -258,49 +256,135 @@
       
         <div class="article-entry" itemprop="articleBody">
           
-                    <p>&ensp; 2021年03月13日 每日一题「力扣算法第705题」</p>
+                    <p>&ensp; </p>
 <a id="more"></a>
 
-<h3 id="题目展现"><a href="#题目展现" class="headerlink" title="题目展现"></a>题目展现</h3><p>来源：<a href="https://leetcode-cn.com/problems/design-hashset/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/design-hashset/</a></p>
+<h3 id="随机测试"><a href="#随机测试" class="headerlink" title="随机测试"></a>随机测试</h3><ul>
+<li>特点：测试用例是纯随机生成的</li>
+<li>要求：<ul>
+<li>输入域必须已知；</li>
+<li>在输入域中获取随机点；</li>
+<li>自动化。</li>
+</ul>
+</li>
+<li><strong>模糊测试</strong>–一种特殊的随机测试<ul>
+<li>是一种通过向目标系统提供非预期的输入并监视异常结果来发现软件漏洞的方法；</li>
+<li>用于检测软件的脆弱性。这是一种非常经济有效的测试技术；</li>
+<li>模糊是黑客发现系统漏洞最常用的方法之一。</li>
+<li>过程：<ul>
+<li>准备一份插入程序中的正确的文件；</li>
+<li>用随机数据替换该文件的某些部分；</li>
+<li>用程序打开文件；</li>
+<li>观察破坏了什么。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>&ensp;<br><strong>对于连续的输入域</strong></p>
+<ul>
+<li>自适应随机测试（ART）<ul>
+<li>导致程序出错的测试用例有<strong>聚集性</strong>的特点，例如：矩形分布、条带状分布、散点状分布。</li>
+<li>前两者可以利用测试用例聚集性的特征，到<strong>尽可能远</strong>的地方选择测试用例，即ART。</li>
+</ul>
+</li>
+<li>固定自选集的自适应随机测试算法（FSCS-ART algorithm）<ul>
+<li>首先，随机生成第一条测试用例；</li>
+<li>如果不满足测试终止条件（即，没有寻找到错误并且测试资源没有耗尽），选择下一条测试用例时首先随机生成k个候选测试用例；</li>
+<li>然后对每个候选测试用例计算其与已有测试用例的距离；</li>
+<li>选择距离最大的候选测试用例进行运行；</li>
+<li>直到测试终止条件满足。</li>
+</ul>
+</li>
+</ul>
+<p>&ensp;<br><strong>对于不连续的输入域</strong></p>
+<ul>
+<li>Anti-Random Testing<ul>
+<li>首先，随机选择第一条测试用例；</li>
+<li>选择第二条测试用例时，需要计算测试用例与已有的测试用例的hamming距离之和；</li>
+<li>选择距离之和最大的，以此类推，直到终止.</li>
+</ul>
+</li>
+</ul>
+<p>&ensp; </p>
+<h3 id="等价类分析"><a href="#等价类分析" class="headerlink" title="等价类分析"></a>等价类分析</h3><ul>
+<li>按照标准对输入域划分，将其划为一个个子集，从每个自己中选择有代表的测试用例进行测试.</li>
+<li>划分标准：<ul>
+<li>根据程序对不同数据的处理进行划分；</li>
+<li>根据不同数据所拥有的控制流或数据流进行划分；</li>
+<li>根据数据合法非法与否进行划分。</li>
+</ul>
+</li>
+<li>合法（Valid）和 非法（Invalid）<ul>
+<li>合法：测试程序的功能</li>
+<li>非法：测试程序是否能够实现合适的错误处理情况</li>
+</ul>
+</li>
+<li>原则<ul>
+<li><strong>完备性</strong>（Complete）：输入域中的一个点或者一个区域至少属于一个等价类；</li>
+<li><strong>无冗余性</strong>（No Redundant）：任意两个等价类之间，不应有交集。</li>
+</ul>
+</li>
+<li>方法<ul>
+<li>按照输入数据的<strong>范围</strong>进行划分；</li>
+<li>按照程序对不同数据的<strong>不同处理情况</strong>进行划分；</li>
+<li>按照输入的<strong>条件</strong>进行划分。</li>
+</ul>
+</li>
+</ul>
+<p>&ensp; </p>
+<h3 id="边界值分析"><a href="#边界值分析" class="headerlink" title="边界值分析"></a>边界值分析</h3><ul>
+<li>边界值分析法就是对输入或输出的边界值进行测试的一种黑盒测试方法；</li>
+<li>通常边界值分析法是作为对等价类划分法的补充，此时，其测试用例来自等价类的边界；</li>
+<li>实践中，由于大量的错误发生在输入、输出值的边界上，所以，对于各种边界值进行测试用例的设计，可以查出更多的错误。</li>
+</ul>
+<p>&ensp; </p>
+<h3 id="组合测试"><a href="#组合测试" class="headerlink" title="组合测试"></a>组合测试</h3><ul>
+<li>很多时候，不同变量之间是协作工作的。（一个输出是由多个输入共同决定的）</li>
+</ul>
 <div align="center">
-    <img src="leetcode705-ques.jpg" alt="设计哈希集合-705st" width="60%"/>
+    <img src="title.jpg" alt="某程序的变量" width="40%"/>
 </div>
 <div align="center" style="color:gray; font-size:5px">
-    图1 设计哈希集合-705st
+    图1 某程序的变量
 </div>
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p><strong>哈希表（Hash Table）</strong><br>&nbsp;<br>&emsp;&emsp;<strong>哈希表，是根据关键码值（Key value）而直接进行访问的数据结构。它通过把关键码值映射到表中一个位置来访问记录，以加快查找速度。</strong><br>&emsp;&emsp;实现一个哈希表，通常需要解决以下几个问题：<br>&emsp;&emsp;1）<strong>哈希函数</strong>：将所有可能元素映射在一段固定长度的数值上，并将元素存储到整数值对应的地址上。<br>&emsp;&emsp;&emsp;&emsp;i.&emsp;直接寻址法：&emsp;取元素或元素的某个线性函数值为散列地址；<br>&emsp;&emsp;&emsp;&emsp;ii.&ensp;数字分析法：&emsp;找出数字的规律，尽可能利用这些数据来构造冲突几率较低的散列地址；<br>&emsp;&emsp;&emsp;&emsp;iii.&ensp;平方取中法：&emsp;先求出元素的平方值，然后按需要取平方值的中间几位作为哈希地址；<br>&emsp;&emsp;&emsp;&emsp;iv.&ensp;折叠法：&emsp;&emsp;&ensp;将元素分割成位数相同的几部分，然后取这几部分的叠加和（去除进位）作为散列地址；<br>&emsp;&emsp;&emsp;&emsp;v.&emsp;随机数法：&emsp;&ensp;选择一随机函数，取元素的随机值作为散列地址，通常用于元素长度不等的场合；<br>&emsp;&emsp;&emsp;&emsp;vi.&ensp;除留余数法：&emsp;取元素被某个不大于散列表表长m的数p除后所得的余数为散列地址。<br>&emsp;&emsp;2）<strong>冲突处理</strong>：因为哈希表值范围往往小于元素的取值范围，所以不同元素可能映射到相同的整数值上，要尽可能避免冲突的发生。<br>&emsp;&emsp;&emsp;&emsp;i.&emsp;开放寻址法：&emsp;包括 线性探测再散列、二次探测再散列、伪随即探测再散列；<br>&emsp;&emsp;&emsp;&emsp;ii.&ensp;再散列法：&emsp;&emsp;产生地址冲突时计算另一个散列函数地址，直到冲突不再发生；<br>&emsp;&emsp;&emsp;&emsp;iii.&ensp;链地址法（拉链法）：&emsp;哈希表对应一个链表的头结点地址；<br>&emsp;&emsp;&emsp;&emsp;iii.&ensp;建立一个公共溢出区：&ensp;先与哈希表的相应位置进行比对，如果相等，则查找成功，反之，到溢出表进行顺序查找。</p>
+<ul>
+<li><p>完全组合</p>
 <div align="center">
-    <img src="leetcode705-flow.jpg" alt="结构" width="80%" />
+  <img src="com.jpg" alt="完全组合" width="40%"/>
 </div>
 <div align="center" style="color:gray; font-size:5px">
-    图2 结构
+  图2 完全组合
+</div>
+</li>
+<li><p>俩俩组合</p>
+<div align="center">
+  <img src="pair.jpg" alt="俩俩组合" width="40%"/>
+</div>
+<div align="center" style="color:gray; font-size:5px">
+  图3 俩俩组合
+</div>
+</li>
+<li><p>T-wise/T-way 组合</p>
+<div align="center">
+  <img src="T3.jpg" alt="T=3" width="40%"/>
+</div>
+<div align="center" style="color:gray; font-size:5px">
+  图4 T=3
+</div>
+</li>
+<li><p>可变长度的组合测试</p>
+<div align="center">
+  <img src="var.jpg" alt="可变长度的组合" width="40%"/>
+</div>
+<div align="center" style="color:gray; font-size:5px">
+  图5 可变长度的组合
 </div>
 
-<p>&nbsp;<br><strong>方法一：大数组法</strong><br>&nbsp;<br>&emsp;&emsp;因为题目说明：0 &lt;= key &lt;= 10^6，即关键字元素的取值范围是1000001个整数，那么我们可以构建一个大小为1000001的数组，索引值即可作为关键字元素值，数组元素值默认为False，如果向哈希表中存入某个关键字元素，即<strong>将数组对应的索引值置为True</strong>即可。<br>&emsp;&emsp;当然，<strong>大数组法</strong>消耗了大量的存储资源，在实际应用中<strong>不可取</strong>。<br>&nbsp;<br><strong>方法二：拉链法（数组+链表）</strong><br>&nbsp;<br>&emsp;&emsp;哈希函数使用<strong>除留余数法</strong>，冲突处理使用传统的<strong>拉链法</strong>。<br>&emsp;&emsp;哈希数组大小设置为一个合适的<strong>素数</strong>（这里选用911，对，PORSCHE那个）。选用素数的原因是考虑现实生活中数据的特殊性，大部分人都对某些数字（某些数字及其倍数）感兴趣，<strong>素数</strong>可以有效避免大规模冲突。哈希数组默认值为None，如果有关键字元素插入，建立新链表，并将对应的数组元素值由None指向新链表头结点即可。<br>&emsp;&emsp;<strong>数组+链表</strong>减小了存储资源的使用，但链表的创建和使用增加了运算时间。<br>&nbsp;<br><strong>方法三：拉链法（数组+列表）</strong><br>&nbsp;<br>&emsp;&emsp;将方法二中的链表改为<strong>列表</strong>，简化拉链的创造和使用。<br>&nbsp;</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一：大数组法--python语言</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyHashSet</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.h=[<span class="literal">False</span>]*<span class="number">1000001</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        self.h[key]=<span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        self.h[key]=<span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">contains</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.h[key]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二：拉链法（数组+链表）--python语言</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, val=None, nxt=None)</span>:</span></span><br><span class="line">        self.val = val</span><br><span class="line">        self.next = nxt</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyHashSet</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.size = <span class="number">911</span></span><br><span class="line">        self.arr = [<span class="literal">None</span>] * self.size</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hash</span><span class="params">(self, key)</span>:</span> <span class="keyword">return</span> key % self.size</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(self, key)</span>:</span> </span><br><span class="line">        pos = self.hash(key)</span><br><span class="line">        head = self.arr[pos]</span><br><span class="line">        <span class="keyword">while</span> head:</span><br><span class="line">            <span class="keyword">if</span> head.val == key: <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            head = head.next</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.find(key): <span class="keyword">return</span> </span><br><span class="line">        pos = self.hash(key)</span><br><span class="line">        oldhead = self.arr[pos]</span><br><span class="line">        head = ListNode(key, oldhead)</span><br><span class="line">        self.arr[pos] = head</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        pos = self.hash(key)</span><br><span class="line">        head = self.arr[pos]</span><br><span class="line">        <span class="keyword">if</span> head <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">if</span> head.val == key: </span><br><span class="line">            self.arr[pos] = head.next</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        pre, head = head, head.next</span><br><span class="line">        <span class="keyword">while</span> head:</span><br><span class="line">            <span class="keyword">if</span> head.val == key: </span><br><span class="line">                pre.next = head.next</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            pre, head = head, head.next</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">contains</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.find(key)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法三：拉链法（数组+列表）--python语言</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyHashSet</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.size = <span class="number">911</span></span><br><span class="line">        self.h=[<span class="literal">False</span>]*self.size</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.h[key%self.size]==<span class="literal">False</span>:</span><br><span class="line">            <span class="comment">#建立列表</span></span><br><span class="line">            self.h[key%self.size]=[key]</span><br><span class="line">        <span class="keyword">elif</span> key <span class="keyword">not</span> <span class="keyword">in</span> self.h[key%self.size]:</span><br><span class="line">            self.h[key%self.size].append(key)</span><br><span class="line">            </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.h[key%self.size]!=<span class="literal">False</span> <span class="keyword">and</span> key <span class="keyword">in</span> self.h[key%self.size]:</span><br><span class="line">            self.h[key%self.size].remove(key)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">contains</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.h[key%self.size]!=<span class="literal">False</span> <span class="keyword">and</span> key <span class="keyword">in</span> self.h[key%self.size]:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><div align="center">
-    <img src="leetcode705-res1.jpg" alt="方法一：大数组法" width="421" height="91" />
-</div>
-<div align="center" style="color:gray; font-size:5px">
-    图3 方法一：大数组法
-</div>
-&nbsp;
-<div align="center">
-    <img src="leetcode705-res2.jpg" alt="方法二：拉链法（数组+链表）" width="421" height="91" />
-</div>
-<div align="center" style="color:gray; font-size:5px">
-    图4 方法二：拉链法（数组+链表）
-</div>
-&nbsp;
-<div align="center">
-    <img src="leetcode705-res3.jpg" alt="方法三：拉链法（数组+列表）" width="421" height="91" />
-</div>
-<div align="center" style="color:gray; font-size:5px">
-    图5 方法三：拉链法（数组+列表）
-</div>
-
+</li>
+</ul>
 <br>
 <br>
 如文中有错误，欢迎和作者及时联系！
@@ -316,15 +400,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法题</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hash</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">黑盒测试</a>
         		</li>
       		
 		</ul>
@@ -336,9 +412,9 @@
 		<ul class="article-tag-list">
 			
 				<li class="article-tag-list-item">
-					<a href="/categories/力扣算法/"
+					<a href="/categories/软件测试/"
 						class="article-tag-list-link color5">
-						力扣算法
+						软件测试
 					</a>
 				</li>
 				
@@ -393,7 +469,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/13/2021-03-13-leetcode-705-md/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/25/2021-03-24-softTest-blackBox-md/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -407,18 +483,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/03/15/2021-03-15-leetcode-54-md/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          螺旋矩阵-力扣算法-54
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/03/12/2021-03-12-leetcode-331-md/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">验证二叉树的前序序列化-力扣算法-331</div>
+    <a href="/2021/03/24/2021-03-24-softTest-whiteBox-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">白盒测试-软件测试-03</div>
       <i class="icon-circle-right"></i>
     </a>
   
