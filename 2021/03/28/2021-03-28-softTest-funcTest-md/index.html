@@ -6,25 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>多级页表与快表-OS-8 | FuyiaYang</title>
+  <title>功能测试-软件测试-04 | FuyiaYang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;ensp; 各个程序是如何放在内存上的？">
+  <meta name="description" content="&amp;ensp; 功能测试属于黑盒测试！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多级页表与快表-OS-8">
-<meta property="og:url" content="http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/index.html">
+<meta property="og:title" content="功能测试-软件测试-04">
+<meta property="og:url" content="http://yoursite.com/2021/03/28/2021-03-28-softTest-funcTest-md/index.html">
 <meta property="og:site_name" content="FuyiaYang">
-<meta property="og:description" content="&amp;ensp; 各个程序是如何放在内存上的？">
+<meta property="og:description" content="&amp;ensp; 功能测试属于黑盒测试！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/pageTable.jpg">
-<meta property="og:image" content="http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/pageTable2.jpg">
-<meta property="og:image" content="http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/multiPageTable.jpg">
-<meta property="og:image" content="http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/TLB.jpg">
-<meta property="article:published_time" content="2021-03-22T11:09:45.000Z">
-<meta property="article:modified_time" content="2021-03-22T11:52:18.926Z">
+<meta property="article:published_time" content="2021-03-28T05:12:51.000Z">
+<meta property="article:modified_time" content="2021-03-28T05:26:17.353Z">
 <meta property="article:author" content="杨润钊的博客">
-<meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="功能测试">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/pageTable.jpg">
   
     <link rel="alternative" href="/atom.xml" title="FuyiaYang" type="application/atom+xml">
   
@@ -197,7 +192,7 @@
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-2021-03-22-OS8-multiPageTable-md"
+                <article id="post-2021-03-28-softTest-funcTest-md"
   class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -205,14 +200,14 @@
         
     
         <h1 class="article-title" itemprop="name">
-          多级页表与快表-OS-8
+          功能测试-软件测试-04
         </h1>
         
           
 
           
-            <a href="/2021/03/22/2021-03-22-OS8-multiPageTable-md/" class="archive-article-date">
-  	<time datetime="2021-03-22T11:09:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-22</time>
+            <a href="/2021/03/28/2021-03-28-softTest-funcTest-md/" class="archive-article-date">
+  	<time datetime="2021-03-28T05:12:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-28</time>
 </a>
 
               <!-- 开始添加字数统计-->
@@ -223,7 +218,7 @@
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text"> 字数统计: </span>
       <span class="post-count">
-        647字
+        439字
       </span>
     </span>
   </span>
@@ -234,7 +229,7 @@
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text"> 阅读时长: </span>
       <span class="post-count">
-        2分
+        1分
       </span>
     </span>
   </span>
@@ -255,94 +250,59 @@
       
         <div class="article-entry" itemprop="articleBody">
           
-                    <p>&ensp; 各个程序是如何放在内存上的？</p>
+                    <p>&ensp; 功能测试属于黑盒测试！</p>
 <a id="more"></a>
 
-<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><ul>
-<li>目的：解决内存分区导致的内存效率问题 – 内存碎片</li>
-<li>做法：将内存分成页<ul>
-<li>操作系统在初始化的时候，将内存分成一页一页的；（一页框≈4K）</li>
-<li>针对每个段内存请求，系统一页一页地分配给这个段。</li>
-</ul>
-</li>
-<li>优点：不需要内存紧缩、内存浪费小；</li>
-<li>为了获得准确的物理地址，所以需要<strong>页表</strong>。</li>
-</ul>
-<div align="center">
-    <img src="pageTable.jpg" alt="页表" width="70%"/>
-</div>
-<div align="center" style="color:gray; font-size:5px">
-    图1 页表
-</div>
-
-<p>&ensp;</p>
-<h3 id="多级页表与快表"><a href="#多级页表与快表" class="headerlink" title="多级页表与快表"></a>多级页表与快表</h3><ul>
-<li>为了提高内存空间利用率，每个页应该小，但是页小了页表就大了，页表放置就成了问题。<ul>
-<li>页面尺寸通常为4K，而地址是32位的，有$ 2^{20} $个页面；</li>
-<li>$ 2^{20} $个页表项都得放在内存中，需要4M内存；系统中并发10个进程，就需要40M内存；</li>
-<li>实际上<strong>大部分逻辑地址根本不会用到</strong>。</li>
-</ul>
-</li>
-<li>需要改进方法。</li>
-</ul>
-<p>&ensp;<br><strong>第一种尝试：删除空页表框</strong></p>
-<div align="center">
-    <img src="pageTable2.jpg" alt="删除空页框的页表" width="70%"/>
-</div>
-<div align="center" style="color:gray; font-size:5px">
-    图2 删除空页框的页表
-</div>
-
-<ul>
-<li>这样页表中的页号不连续，就需要比较、查找，折半查找的代价：如果是4M内存，则每次执行指令进行寻址都需要额外查找10次页表（访问内存）。<ul>
-<li>和连续页号的页表相比：连续页号的页表只需要额外查找1次的代价；</li>
-</ul>
-</li>
-<li>第一次尝试<strong>失败</strong>！</li>
-<li>问：如何让页表既是连续的，用占用内存少？</li>
-</ul>
-<p>&ensp;<br><strong>第二种尝试：多级页表</strong>，即页目录表+页表</p>
-<div align="center">
-    <img src="multiPageTable.jpg" alt="多级页表" width="70%"/>
-</div>
-<div align="center" style="color:gray; font-size:5px">
-    图3 多级页表
-</div>
-
-<ul>
-<li>上图中，页表项占用空间大小：$ 4 \times 2^{10} \times 4 = 16K &lt;&lt; 4M $</li>
-<li>问题：多级页表提高了空间效率，但每增加了访问内存的次数。<ul>
-<li>（一级页表就要多访问内存一次，尤其是64位系统）</li>
+<h3 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h3><ul>
+<li>概念：根据产品特性和设计需求，验证一个产品的特性和行为是否满足设计需求。</li>
+<li>步骤：<ul>
+<li>根据需求来细分功能点；</li>
+<li>根据功能点派生测试需求；</li>
+<li>根据测试需求设计功能测试用例；</li>
+<li>逐项执行功能测试用例验证产品。</li>
 </ul>
 </li>
 </ul>
-<p>&ensp;<br><strong>最终方案：快表（TLB）+多级页表</strong></p>
-<ul>
-<li><p>TLB页表缓存</p>
-<ul>
-<li>为CPU的一种缓存，是一组相联快速存储，是寄存器；</li>
-<li>可介于CPU和CPU缓存之间，或在CPU缓存和主存之间；<div align="center">
-<img src="TLB.jpg" alt="TLB" width="70%"/>
-</div>
-<div align="center" style="color:gray; font-size:5px">
-图4 TLB
-</div>
-</li>
+<h3 id="探索式测试"><a href="#探索式测试" class="headerlink" title="探索式测试"></a>探索式测试</h3><ul>
+<li>特点：<ul>
+<li>一种软件测试风格（style）；</li>
+<li>强调独立测试人员（individual tester）的个人自由和职责（personal freedom and responsibiity）；</li>
+<li>将测试学习、设计、执行、结果分析作为相互支持的活动（mutually supportive activates）；</li>
+<li>在整个项目过程中并行地执行（run in parallel through out the project）。</li>
 </ul>
 </li>
-<li><p>TLB命中时效率会很高，未命中时效率降低</p>
-<ul>
-<li>有效访问时间$ =HitR\times \left ( TLB+MA\right )+\left (1-HitR \right )\times\left(TLB+n\times MA\right ) $</li>
-<li>$HitR$：命中率</li>
-<li>$MA$：内存访问时间</li>
-<li>$TLB$：TLB访问时间</li>
-<li>$n$：页表级数</li>
+<li>启发式测试策略模型<ul>
+<li>产品元素：需要测试的对象<ul>
+<li>结构（Structure）：产品的物理（physical）元素，如：代码、硬件、配置文件、数据文件等；</li>
+<li>功能（Fuction）：产品的功能；</li>
+<li>数据（Data）：产品所操作的数据；</li>
+<li>接口（Interface）：产品所使用的或暴露出的接口；</li>
+<li>操作（Operation）：产品被使用的方式；</li>
+<li>时间（Time）：影响产品的时间因素。</li>
 </ul>
 </li>
-<li><p>TLB越大，命中率越高；但TLB很贵，所以TLB的大小通常为64KB至1024KB。</p>
-<ul>
-<li>为什么[64,1024]就够了？</li>
-<li>因为程序的地址访问存在<strong>空间局部性</strong>（Locality in Space），体现在for、while循环等。</li>
+<li>强调：<ul>
+<li>关注价值（Value）</li>
+<li>风险驱动（Risk）</li>
+</ul>
+</li>
+<li>测程（Session）<ul>
+<li>任务：通过漫游测试，建立某个软件/系统的初始功能列表（function list）</li>
+<li>潜在目标：学习软件的功能，建立测试模型</li>
+</ul>
+</li>
+<li>功能列表<ul>
+<li>建立了被测对象的整体模型；</li>
+<li>提供了可扩展的测试设计框架；</li>
+<li>提供了测试覆盖的目标；</li>
+<li>用简洁的形式提供丰富的信息；</li>
+</ul>
+</li>
+<li>运用功能列表<ul>
+<li>将功能列表视作覆盖率指南，逐个检查每个功能；</li>
+<li>综合功能列表的多个元素，来测试功能的协作。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -359,7 +319,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">功能测试</a>
         		</li>
       		
 		</ul>
@@ -371,9 +331,9 @@
 		<ul class="article-tag-list">
 			
 				<li class="article-tag-list-item">
-					<a href="/categories/操作系统/"
+					<a href="/categories/软件测试/"
 						class="article-tag-list-link color5">
-						操作系统
+						软件测试
 					</a>
 				</li>
 				
@@ -428,7 +388,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/22/2021-03-22-OS8-multiPageTable-md/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/28/2021-03-28-softTest-funcTest-md/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -442,18 +402,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/03/23/2021-03-23-leetcode-341-md/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          扁平化嵌套列表迭代器-力扣算法-341
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/03/22/2021-03-22-OS7-memoryUseAndSegment-md/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">内存使用与分段-OS-7</div>
+    <a href="/2021/03/27/2021-03-27-leetcode-61-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">旋转链表-力扣算法-61</div>
       <i class="icon-circle-right"></i>
     </a>
   
