@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2021/03/28/2021-03-28-softTest-perfTest-md/</loc>
+    
+    <lastmod>2021-03-28T06:24:43.671Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2021/03/28/2021-03-28-softTest-funcTest-md/</loc>
     
-    <lastmod>2021-03-28T05:26:17.353Z</lastmod>
+    <lastmod>2021-03-28T06:24:01.734Z</lastmod>
     
   </url>
   

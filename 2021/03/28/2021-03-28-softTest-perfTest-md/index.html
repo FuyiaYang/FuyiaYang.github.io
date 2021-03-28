@@ -6,26 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>扁平化嵌套列表迭代器-力扣算法-341 | FuyiaYang</title>
+  <title>性能测试-软件测试-05 | FuyiaYang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;ensp; 2021年03月23日 每日一题「力扣算法第341题」">
+  <meta name="description" content="&amp;ensp; 相对于功能测试（保证功能的正确性），性能测试是在功能正确的基础上考虑功能的响应时间、资源占用等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="扁平化嵌套列表迭代器-力扣算法-341">
-<meta property="og:url" content="http://yoursite.com/2021/03/23/2021-03-23-leetcode-341-md/index.html">
+<meta property="og:title" content="性能测试-软件测试-05">
+<meta property="og:url" content="http://yoursite.com/2021/03/28/2021-03-28-softTest-perfTest-md/index.html">
 <meta property="og:site_name" content="FuyiaYang">
-<meta property="og:description" content="&amp;ensp; 2021年03月23日 每日一题「力扣算法第341题」">
+<meta property="og:description" content="&amp;ensp; 相对于功能测试（保证功能的正确性），性能测试是在功能正确的基础上考虑功能的响应时间、资源占用等。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2021/03/23/2021-03-23-leetcode-341-md/leetcode341-ques.jpg">
-<meta property="og:image" content="http://yoursite.com/2021/03/23/2021-03-23-leetcode-341-md/leetcode341-flow.jpg">
-<meta property="og:image" content="http://yoursite.com/2021/03/23/2021-03-23-leetcode-341-md/leetcode341-res.jpg">
-<meta property="article:published_time" content="2021-03-23T03:07:35.000Z">
-<meta property="article:modified_time" content="2021-03-23T03:55:00.068Z">
+<meta property="article:published_time" content="2021-03-28T06:09:11.000Z">
+<meta property="article:modified_time" content="2021-03-28T06:24:43.671Z">
 <meta property="article:author" content="杨润钊的博客">
-<meta property="article:tag" content="算法题">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="递归">
+<meta property="article:tag" content="性能测试">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2021/03/23/2021-03-23-leetcode-341-md/leetcode341-ques.jpg">
   
     <link rel="alternative" href="/atom.xml" title="FuyiaYang" type="application/atom+xml">
   
@@ -198,7 +192,7 @@
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-2021-03-23-leetcode-341-md"
+                <article id="post-2021-03-28-softTest-perfTest-md"
   class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -206,14 +200,14 @@
         
     
         <h1 class="article-title" itemprop="name">
-          扁平化嵌套列表迭代器-力扣算法-341
+          性能测试-软件测试-05
         </h1>
         
           
 
           
-            <a href="/2021/03/23/2021-03-23-leetcode-341-md/" class="archive-article-date">
-  	<time datetime="2021-03-23T03:07:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-23</time>
+            <a href="/2021/03/28/2021-03-28-softTest-perfTest-md/" class="archive-article-date">
+  	<time datetime="2021-03-28T06:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-28</time>
 </a>
 
               <!-- 开始添加字数统计-->
@@ -224,7 +218,7 @@
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text"> 字数统计: </span>
       <span class="post-count">
-        397字
+        647字
       </span>
     </span>
   </span>
@@ -235,7 +229,7 @@
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text"> 阅读时长: </span>
       <span class="post-count">
-        1分
+        2分
       </span>
     </span>
   </span>
@@ -256,56 +250,74 @@
       
         <div class="article-entry" itemprop="articleBody">
           
-                    <p>&ensp; 2021年03月23日 每日一题「力扣算法第341题」</p>
+                    <p>&ensp; 相对于功能测试（保证功能的正确性），性能测试是在功能正确的基础上考虑功能的响应时间、资源占用等。</p>
 <a id="more"></a>
-<h3 id="题目展现"><a href="#题目展现" class="headerlink" title="题目展现"></a>题目展现</h3><p>来源：<a href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/flatten-nested-list-iterator/</a></p>
-<div align="center">
-    <img src="leetcode341-ques.jpg" alt="扁平化嵌套列表迭代器-341st" width="60%"  />
-</div>
-<div align="center" style="color:gray; font-size:5px">
-    图1 扁平化嵌套列表迭代器-341st
-</div>
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>我们可以把<strong>嵌套的整型列表</strong>看成是一棵<strong>树</strong>。<br>把&ensp;<strong>整数</strong>&ensp;看做&ensp;<strong>叶子节点</strong>；&ensp;把&ensp;<strong>列表</strong>&ensp;看做&ensp;<strong>非叶子结点</strong>。<br>我们所要输出的结果就是这棵树的<strong>深度优先搜索</strong>顺序。</p>
-<p><strong>方法：递归</strong></p>
-<ul>
-<li>可以把&ensp;队列中的队列元素&ensp;看做是一个新的<strong>嵌套整型列表</strong>，用函数进行递归。</li>
-</ul>
-<div align="center">
-    <img src="leetcode341-flow.jpg" alt="流程图-341st" width="70%"/>
-</div>
-<div align="center" style="color:gray; font-size:5px">
-    图2 流程图-341st
-</div>
-
-<ul>
-<li>递归函数：<ul>
-<li>第一步：按队列顺序遍历输入队列的所有元素；<ul>
-<li>如果元素是整型：则插入res返回队列；</li>
-<li>如果元素不是整型（即为队列），则继续用函数递归；</li>
+<h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><ul>
+<li>性能测试（Performance Testing）<ul>
+<li>验证产品的性能在特定负载和环境条件下使用是否满足性能指标；</li>
+<li>进一步发现系统中存在的性能瓶颈，优化系统。</li>
 </ul>
 </li>
-<li>第二步：递归结束后，获得的res队列就是我们所要求解的结果；</li>
-<li>第三步：编写&ensp;next()&ensp;和&ensp;hasNest()函数。</li>
+</ul>
+<p>&ensp;</p>
+<h3 id="性能测试-1"><a href="#性能测试-1" class="headerlink" title="性能测试"></a>性能测试</h3><ul>
+<li>不同的关注对象采用不同的性能的度量方法<ul>
+<li>服务端性能采用CPU、内存等使用率来度量；</li>
+<li>客户端性能通常根据系统处理特定用户请求的响应时间来度量。</li>
 </ul>
 </li>
-<li>时间复杂度：$ O\left(n\right) $</li>
-<li>空间复杂度：$ O\left(n\right) $</li>
+<li><strong>响应时间</strong><ul>
+<li>指系统对请求作出响应所需要的时间；</li>
+<li>划分为：<ul>
+<li><strong>服务端</strong>响应时间：从&ensp;请求发出开始&ensp;到&ensp;客户端接收到最后一个字节数据&ensp;所消耗的时间；</li>
+<li><strong>客户端</strong>响应时间：客户端收到响应数据后&ensp;呈现/响应用户&ensp; 所消耗的时间。</li>
+</ul>
+</li>
+<li><strong>并发用户数</strong><ul>
+<li>取决于测试对象的目标<strong>业务场景</strong>；</li>
+<li>需要先确定业务场景，然后基于场景采用某些相应方法计算并发用户数；</li>
+<li>并发用户数与同时在线数有区别。</li>
+</ul>
+</li>
+<li><strong>吞吐量</strong><ul>
+<li>指单位时间内处理的用户请求数量；</li>
+<li>访问人数/天、页面数/秒、请求数/秒、处理业务数/小时&ensp;等等；</li>
+</ul>
+</li>
+<li><strong>性能计数器</strong><ul>
+<li>是描述系统性能的一些数据指标；</li>
+<li>例如，内存使用率、CPU使用率、进程时间&ensp;等，都是常见服务器性能计数器；</li>
+<li>性能计数器与系统配置情况、系统架构、开发方式等都有密切联系。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p>&ensp;</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python语言</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NestedIterator</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, nestedList)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Initialize your data structure here.</span></span><br><span class="line"><span class="string">        :type nestedList: List[NestedInteger]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.res=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nestedList:</span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">is</span> int:</span><br><span class="line">                self.res.append(i)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                self.recursion(i)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recursion</span><span class="params">(self,nL)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> nL <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> nL.isInteger():</span><br><span class="line">                self.res.append(nL.getInteger())</span><br><span class="line">            <span class="keyword">else</span>:<span class="comment">#nL is a list</span></span><br><span class="line">                nL=nL.getList()</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> nL:</span><br><span class="line">                    self.recursion(i)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">next</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.res.pop(<span class="number">0</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hasNext</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(self.res)!=<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
-<p>&ensp;</p>
-<h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><div align="center">
-    <img src="leetcode341-res.jpg" alt="运行效果" width="421"/>
-</div>
-<div align="center" style="color:gray; font-size:5px">
-    图3 运行效果
-</div>
-
-
+<h3 id="性能测试类别"><a href="#性能测试类别" class="headerlink" title="性能测试类别"></a>性能测试类别</h3><ul>
+<li><strong>负载测试</strong><ul>
+<li>用于验证应用系统在<strong>正常负载</strong>条件下的行为；</li>
+<li>通过一些性能指标体现性能行为；</li>
+<li>两种方式：<ul>
+<li><strong>直接</strong>到达负载数（如并发用户数、事务数等）；</li>
+<li><strong>逐步</strong>增加负载数（如并发用户数、事务数等）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>压力测试</strong><ul>
+<li>评估应用系统处于或<strong>超过预期负载</strong>时的行为；</li>
+<li>关注的行为不一定是性能行为，可能是某种Bug，比如同步问题、内存泄漏等；</li>
+<li>在压力级别逐渐增加时，系统性能应该按照预期缓慢下降，但是不应该崩溃；</li>
+<li>还可以发现系统崩溃的临界点，从而发现系统中的薄弱环节。</li>
+</ul>
+</li>
+</ul>
 <br>
 <br>
 如文中有错误，欢迎和作者及时联系！
+
                       
 
                         
@@ -318,15 +330,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法题</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能测试</a>
         		</li>
       		
 		</ul>
@@ -338,9 +342,9 @@
 		<ul class="article-tag-list">
 			
 				<li class="article-tag-list-item">
-					<a href="/categories/力扣算法/"
+					<a href="/categories/软件测试/"
 						class="article-tag-list-link color5">
-						力扣算法
+						软件测试
 					</a>
 				</li>
 				
@@ -395,7 +399,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/23/2021-03-23-leetcode-341-md/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/28/2021-03-28-softTest-perfTest-md/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -409,18 +413,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/03/23/2021-03-23-softTest-PIEmodel-md/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          PIE模型-软件测试-01
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/03/22/2021-03-22-OS8-multiPageTable-md/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">多级页表与快表-OS-8</div>
+    <a href="/2021/03/28/2021-03-28-softTest-funcTest-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">功能测试-软件测试-04</div>
       <i class="icon-circle-right"></i>
     </a>
   
