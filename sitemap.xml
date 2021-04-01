@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2021/04/01/2021-04-01-leetcode-1006-md/</loc>
+    
+    <lastmod>2021-04-01T03:57:18.459Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2021/03/25/2021-03-24-softTest-blackBox-md/</loc>
+    
+    <lastmod>2021-04-01T02:45:45.527Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2021/03/28/2021-03-28-leetcode-173-md/</loc>
     
     <lastmod>2021-03-31T06:40:43.391Z</lastmod>
@@ -40,13 +54,6 @@
     <loc>http://yoursite.com/2021/03/27/2021-03-27-leetcode-61-md/</loc>
     
     <lastmod>2021-03-28T03:08:48.619Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2021/03/25/2021-03-24-softTest-blackBox-md/</loc>
-    
-    <lastmod>2021-03-27T15:16:28.178Z</lastmod>
     
   </url>
   
